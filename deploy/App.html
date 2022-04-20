@@ -7,7 +7,7 @@
 
     <script type="text/javascript">
         Rally.onReady(function () {
-                Ext.define("CustomApp",{extend:"Rally.app.App",componentCls:"app",launch:function(){}});
+                Ext.define("CustomApp",{extend:"Rally.app.App",componentCls:"app",launch:function(){var e=this.getContext(),t=["userstory","defect","defectsuite","testset"],a=Ext.create("Rally.ui.gridboard.GridBoard",{context:e,modelNames:t,toggleState:"board",stateful:!1,plugins:[{ptype:"rallygridboardaddnew"},{ptype:"rallygridboardfieldpicker",headerPosition:"left",modelNames:t,stateful:!0,stateId:e.getScopedStateId("columns-example")},{ptype:"rallygridboardinlinefiltercontrol",inlineFilterButtonConfig:{stateful:!0,stateId:e.getScopedStateId("filters"),modelNames:t,inlineFilterPanelConfig:{quickFilterPanelConfig:{defaultFields:["Iteration"]}}}}],cardBoardConfig:{attribute:"FlowState"}});this.add(a)}});
 
             Rally.launchApp('CustomApp', {
                 name:"newSprintBoard",
